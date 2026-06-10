@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Wrapper: "flutter run" in this folder runs on Android emulator instead of Windows.
+case "${1:-}" in
+  run)
+    shift
+    exec bash "$(dirname "$0")/run.sh" "$@"
+    ;;
+  *)
+    exec flutter "$@"
+    ;;
+esac
